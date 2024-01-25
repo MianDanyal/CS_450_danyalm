@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
 
 	// GLFW setup
 	// Switch to 4.1 if necessary for macOS
-	GLFWwindow* window = setupGLFW("BasicGraphics", 4, 3, 800, 800, DEBUG_MODE);
+	GLFWwindow* window = setupGLFW("Assign01: danyalm", 4, 3, 800, 800, DEBUG_MODE);
 
 	// GLEW setup
 	setupGLEW(window);
@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
 	if(DEBUG_MODE) checkAndSetupOpenGLDebugging();
 
 	// Set the background color to a shade of blue
-	glClearColor(0.0f, 0.0f, 0.7f, 1.0f);	
+	glClearColor(0.8f, 0.9f, 0.0f, 1.0f);	
 
 	// Create and load shaders
 	GLuint programID = 0;
