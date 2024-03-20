@@ -134,13 +134,13 @@ int main(int argc, char **argv) {
 
 	string modelPath = "sampleModels/sphere.obj";
 
-	if(argc <= 2) {
+	if(argc >= 2) {
 		modelPath = string(argv[1]);
 	}
 
 	Assimp::Importer importer;
 
-	const aiScene *scene = importer.ReadFile("sampleModels/sphere.obj",
+	const aiScene *scene = importer.ReadFile(modelPath,
 	aiProcess_Triangulate | aiProcess_FlipUVs |
 	aiProcess_GenNormals | aiProcess_JoinIdenticalVertices);
 
