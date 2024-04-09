@@ -358,6 +358,7 @@ int main(int argc, char **argv) {
 	for (auto &mesh : meshes) {
     cleanupMesh(mesh);
 	}	
+	meshes.clear();
 
 
 	glUseProgram(0);
