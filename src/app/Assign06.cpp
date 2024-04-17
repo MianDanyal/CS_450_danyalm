@@ -56,7 +56,7 @@ glm::mat4 makeLocalRotate(glm::vec3 offset, glm::vec3 axis, float angle) {
 }
 
 static void mouse_position_callback(GLFWwindow* window, double xpos, double ypos) {
-    glm::vec2 relMouse = glm::vec2(xpos, ypos) - lastMousePos;
+    glm::vec2 relMouse = -(glm::vec2(xpos, ypos) - lastMousePos);
 
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
@@ -68,19 +68,19 @@ static void mouse_position_callback(GLFWwindow* window, double xpos, double ypos
         glm::vec3 cameraDirection = cameraLookAt - cameraPosition;
 
         glm::vec4 lookAtVec = glm::vec4(cameraLookAt, 1.0);
-        glm::vec4 eyeVec = glm::vec4(cameraPosition, 1.0);
-        glm::mat4 rotateY = makeLocalRotate(cameraLookAt, glm::vec3(0, 1, 0), 30.0f * relMouse.x);
+        //glm::vec4 eyeVec = glm::vec4(cameraPosition, 1.0);
+        glm::mat4 rotateY = makeLocalRotate(cameraPosition, glm::vec3(0, 1, 0), 30.0f * relMouse.x);
         lookAtVec = rotateY * lookAtVec;
-        eyeVec = rotateY * eyeVec;
+        //eyeVec = rotateY * eyeVec;
         cameraLookAt = glm::vec3(lookAtVec);
-        cameraPosition = glm::vec3(eyeVec);
+        //cameraPosition = glm::vec3(eyeVec);
 
         glm::vec3 xAxis = glm::cross(cameraDirection, glm::vec3(0, 1, 0));
-        glm::mat4 rotateX = makeLocalRotate(cameraLookAt, xAxis, 30.0f * relMouse.y);
+        glm::mat4 rotateX = makeLocalRotate(cameraPosition, xAxis, 30.0f * relMouse.y);
         lookAtVec = rotateX * glm::vec4(cameraLookAt, 1.0);
-        eyeVec = rotateX * glm::vec4(cameraPosition, 1.0);
+        //eyeVec = rotateX * glm::vec4(cameraPosition, 1.0);
         cameraLookAt = glm::vec3(lookAtVec);
-        cameraPosition = glm::vec3(eyeVec);
+        //cameraPosition = glm::vec3(eyeVec);
 
         lastMousePos = glm::vec2(xpos, ypos);
     }
