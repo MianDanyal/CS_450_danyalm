@@ -351,7 +351,7 @@ int main(int argc, char **argv) {
 	glfwSetCursorPosCallback(window, mouse_position_callback);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	
-	PointLight light;
+	//PointLight light;
     light.pos = glm::vec4(0.5, 0.5, 0.5, 1.0);
     light.color = glm::vec4(1.0, 1.0, 1.0, 1.0);
     GLint lightPosLoc = glGetUniformLocation(programID, "light.pos");
