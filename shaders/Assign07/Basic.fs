@@ -38,8 +38,8 @@ float getNDF(vec3 H, vec3 N, float roughness)
     float alpha2 = alpha * alpha;
 
     float nom = alpha2;
-    float denom = (PI * cosThetaH2 * (alpha2 - 1.0) + 1.0);
-    denom = denom * denom;
+    float denom = (cosThetaH2 * (alpha2 - 1.0) + 1.0);
+    denom = PI * denom * denom;
     
     return nom / denom;
 }
